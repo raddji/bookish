@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace bookish-client build",
+    "dev": "yarn workspace bookish-server dev",
+    "dev:debug": "yarn workspace bookish-server dev:debug",
+    "heroku-postbuild": "yarn workspace bookish-client build",
+    "start": "yarn workspace bookish-server start",
+    "dev:cypress": "yarn workspace bookish-server dev:e2e",
+    "e2e:open": "yarn workspace bookish-e2e e2e:open",
+    "e2e:run": "yarn workspace bookish-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^14.19"
+  },
+  "dependencies": {
+    "passport": "^0.5.3"
+  }
+}

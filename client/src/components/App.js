@@ -8,6 +8,8 @@ import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import BookList from "./BookList";
+import NewBookForm from "./NewBookForm";
+import Home from "./Home";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -28,14 +30,16 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/books">
-          <BookList />
+        <Route exact path="/" component={Home}>
         </Route>
-        <Route exact path="/users/new" component={RegistrationForm} />
+        <Route exact path="/books" component={BookList} />
+        <Route exact path="/books/new" component={NewBookForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/users/new" component={RegistrationForm} />
       </Switch>
     </Router>
   );
+
 };
 
 export default hot(App);

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import NewBookForm from './NewBookForm';
+
 const BookList = (props) => {
   const [books, setBooks] = useState([]);
 
@@ -14,7 +16,7 @@ const BookList = (props) => {
       const responseBody = await response.json();
       setBooks(responseBody.books);
     } catch(error) {
-      console.error(`Error in fetch: ${err.message}`);
+      console.error(`Error in fetch: ${error.message}`);
 
     }
   }
@@ -25,8 +27,8 @@ const BookList = (props) => {
 
   let bookItems = books.map((book) => {
     return (
-      <div>
-        <ul>
+      <div key={book.id}>
+        <ul >
           <li>{book.title}</li>
           <li>{book.author}</li>
         </ul>

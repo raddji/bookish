@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BookItem from './BookItem';
 
 import NewBookForm from './NewBookForm';
 
@@ -27,12 +28,10 @@ const BookList = (props) => {
 
   let bookItems = books.map((book) => {
     return (
-      <div key={book.id}>
-        <ul >
-          <li>{book.title}</li>
-          <li>{book.author}</li>
-        </ul>
-      </div>
+      <BookItem
+        key={book.id}
+        book={book}
+      />
     );
   });
 

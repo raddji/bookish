@@ -10,6 +10,7 @@ import TopBar from "./layout/TopBar";
 import BookList from "./BookList";
 import NewBookForm from "./NewBookForm";
 import Home from "./Home";
+import BookShow from "./BookShow";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -34,6 +35,7 @@ const App = (props) => {
         </Route>
         <Route exact path="/books" component={BookList} />
         <Route exact path="/books/new" component={NewBookForm} />
+        <Route exact path="/books/:id" component={BookShow} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/users/new" component={RegistrationForm} />
       </Switch>

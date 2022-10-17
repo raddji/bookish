@@ -13,6 +13,16 @@ booksRouter.get('/', async (req, res) => {
   } catch(error) {
     return res.status(500).json({ errors: error });
   }
+});
+
+booksRouter.get('/:id', async (req, res) => {
+  const bookId = req.params.id;
+  try {
+    const book = await Book.query().findById(bookId);
+    return res.status(200).json({ book: book });
+  } catch(error) {
+    return res.status(500).json({ errors: error });
+  }
 })
 
 booksRouter.post('/', async (req, res) => {
